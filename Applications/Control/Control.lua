@@ -131,13 +131,13 @@ local function drawMain()
 		xPos, yPos = x + 3, y + heightOfTopBar + 3
 		image.draw(xPos, yPos, osIcon)
 		xPos, yPos = x + 36, yPos + 3
-		ecs.colorTextWithBack(xPos, yPos, 0x000000, colors.main, "MineOS"); yPos = yPos + 1
-		ecs.colorText(xPos, yPos, ecs.colors.lightGray, "Публичная бета-версия 1.75"); yPos = yPos + 2
+		ecs.colorTextWithBack(xPos, yPos, 0x000000, colors.main, "MineOS-Server"); yPos = yPos + 1
+		ecs.colorText(xPos, yPos, ecs.colors.lightGray, "Публичная бета-версия 1.3"); yPos = yPos + 2
 
-		ecs.smartText(xPos, yPos, "§fСистемный блок §8(3 уровень, середина 2015 года)"); yPos = yPos + 1
-		ecs.smartText(xPos, yPos, "§fПроцессор §8(3 уровень, дохуя GHz)"); yPos = yPos + 1
-		ecs.smartText(xPos, yPos, "§fПамять §8(1333 МГц DDR3 "..ram.total.." KB)"); yPos = yPos + 1
-		ecs.smartText(xPos, yPos, "§fГрафика §8(GTX Titan AnaloRazrivatel mk.3000)"); yPos = yPos + 1
+		ecs.smartText(xPos, yPos, "§fСерверный блок §8(Лучше среднего)"); yPos = yPos + 1
+		ecs.smartText(xPos, yPos, "§fПроцессор §8(6 ядерный, 4.5 GHz)"); yPos = yPos + 1
+		ecs.smartText(xPos, yPos, "§fПамять §8(2800 МГц DDR3 "..ram.total.." KB)"); yPos = yPos + 1
+		ecs.smartText(xPos, yPos, "§fГрафика §8(GTX 1080 TI)"); yPos = yPos + 1
 		ecs.smartText(xPos, yPos, "§fСерийный номер §8"..ecs.stringLimit("end", computer.address(), 30)); yPos = yPos + 1
 	
 	elseif currentMode == 2 then
