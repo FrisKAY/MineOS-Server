@@ -21,7 +21,7 @@ local colors = {
 	topButtonsText = 0x004900,
 }
 
-local topButtons = {"Система", "Диски", "Активация"}
+local topButtons = {"Система", "Диски"}
 local spaceBetweenTopButtons, offsetTopButtons = 2, 2
 local currentMode = 1
 
@@ -128,6 +128,7 @@ local function drawMain()
 	ecs.square(x, y + heightOfTopBar, width, height - heightOfTopBar, colors.main)
 	local xPos, yPos
 	if currentMode == 1 then
+	    obj["Active"] = {}
 		xPos, yPos = x + 3, y + heightOfTopBar + 3
 		image.draw(xPos, yPos, osIcon)
 		xPos, yPos = x + 36, yPos + 3
@@ -138,6 +139,9 @@ local function drawMain()
 		ecs.smartText(xPos, yPos, "§fПоследнее обновление §8- 11.06.2016"); yPos = yPos + 1
 		ecs.smartText(xPos, yPos, "§fПамять §8из "..ram.total.." KB, нарушений нет!"); yPos = yPos + 1
 		ecs.smartText(xPos, yPos, "§fЛицензия §8"..ecs.stringLimit("end", computer.address(), 30)); yPos = yPos + 1
+		
+		xPos, yPos = x + 67, yPos - 4
+	    newObj("HDDControls", i, ecs.drawButton(xPos, yPos, 14, 3, "Управление", ecs.colors.blue, 0xffffff))
 	
 	elseif currentMode == 2 then
 		obj["HDDControls"] = {}
@@ -173,19 +177,7 @@ local function drawMain()
 
 		--Скроллбар
 		ecs.srollBar(x + width - 1, y + heightOfTopBar, 1, height - heightOfTopBar, #HDDs, drawHDDFrom, 0xdddddd, ecs.colors.blue)		
-	
-	elseif currentMode == 3 then
-	    obj["Active"] = {}
-		xPos, yPos = x + 3, y + heightOfTopBar + 3
-		image.draw(xPos, yPos, osIcon)
-		xPos, yPos = x + 36, yPos + 3
-		ecs.colorTextWithBack(xPos, yPos, 0x000000, colors.main, "Dr.WEB"); yPos = yPos + 1
-		ecs.colorText(xPos, yPos, ecs.colors.lightGray, "Антивирус"); yPos = yPos + 2
-
-		xPos, yPos = x + 67, yPos - 4
-		newObj("Active", i, ecs.drawButton(xPos, yPos, 18, 3, "Активировать защиту", ecs.colors.blue, 0xffffff))
-
-    end
+	end
 end
 
 
