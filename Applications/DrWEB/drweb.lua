@@ -194,7 +194,7 @@ while true do
 	if e[1] == "touch" then
         for key in pairs(obj["Active"]) do
 				if ecs.clickedAtArea(e[3], e[4], obj["Active"][key][1], obj["Active"][key][2], obj["Active"][key][3], obj["Active"][key][4]) then
-					ecs.drawButton(obj["Active"][key][1], obj["Active"][key][2], 14, 3, "Управление", 0xdddddd, ecs.colors.blue)
+					ecs.drawButton(obj["Active"][key][1], obj["Active"][key][2], 14, 3, "Активация", 0xdddddd, ecs.colors.blue)
 					local action = context.menu(obj["Active"][key][1], obj["Active"][key][2] + 3, {"Форматировать"}, {"Изменить имя"}, {"Установить как загрузочный"}, "-", {"Сдублировать OS на этот диск"})
 					if action == "Форматировать" then
 						local data = ecs.universalWindow("auto", "auto", 38, ecs.windowColors.background, true, {"EmptyLine"}, {"CenterText", 0x880000, "Внимание!"}, {"EmptyLine"}, {"CenterText", 0x262626, "Данное действие очистит весь диск."}, {"CenterText", 0x262626, "Продолжить?"}, {"EmptyLine"}, {"Button", {0xbbbbbb, 0xffffff, "Да"}, {0x999999, 0xffffff, "Нет"}})
@@ -215,7 +215,7 @@ while true do
 						bootAddress = HDDs[key].address
 						drawMain()
 					end
-					ecs.drawButton(obj["Active"][key][1], obj["Active"][key][2], 14, 3, "Управление", ecs.colors.blue, 0xffffff)
+					ecs.drawButton(obj["Active"][key][1], obj["Active"][key][2], 14, 3, "Активация", ecs.colors.blue, 0xffffff)
 					break
 				end
 			end
