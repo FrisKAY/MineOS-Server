@@ -202,11 +202,11 @@ do
     {"EmptyLine"},
     {"CenterText", ecs.colors.orange, "Change some OS properties"},
     {"EmptyLine"},
-    {"Switch", 0xF2B233, 0xffffff, 0xFFFFFF, "Download all Apps", true},
+    {"Switch", 0xF2B233, 0xffffff, 0xFFFFFF, "Download all Apps", false},
     {"EmptyLine"},
-    {"Switch", 0xF2B233, 0xffffff, 0xFFFFFF, "Download wallpapers", true},
+    {"Switch", 0xF2B233, 0xffffff, 0xFFFFFF, "Download wallpapers", false},
     {"EmptyLine"},
-    {"Switch", 0xF2B233, 0xffffff, 0xFFFFFF, "Show help tips in OS", true},
+    {"Switch", 0xF2B233, 0xffffff, 0xFFFFFF, "Show help tips in OS", false},
     {"EmptyLine"},
     {"Button", {ecs.colors.orange, 0x262626, "OK"}}
   )
