@@ -77,7 +77,8 @@ end
 ----------------------------------------------------------------------------------------------------------------------------------
 
 rayEngine.tileWidth = 32
-
+rayEngine.modifer = 0
+rayEngine.horizontHeight = math.floor(buffer.screen.height / 2)
 function rayEngine.loadWorld(pathToWorldFolder)
 	rayEngine.world = files.loadTableFromFile(pathToWorldFolder .. "/World.cfg")
 	rayEngine.map = files.loadTableFromFile(pathToWorldFolder .. "/Map.cfg")
@@ -225,7 +226,8 @@ end
 
 function rayEngine.drawWorld()
 	buffer.clear(rayEngine.world.colors.groundByTime)
-	buffer.square(1, 1, buffer.screen.width, math.floor(buffer.screen.height / 2), rayEngine.world.colors.sky.current)
+	
+	buffer.square(1, 1, buffer.screen.width, rayEngine.horizontHeight, rayEngine.world.colors.sky.current)
 
 	local startColumn = rayEngine.player.rotation - (rayEngine.player.fieldOfView / 2)
 	local endColumn = rayEngine.player.rotation + (rayEngine.player.fieldOfView / 2)
@@ -241,7 +243,7 @@ function rayEngine.drawWorld()
 		-- local dist = math.min( hDist, vDist ) * math.cos( convertDegreesToRadians(angle) )
 		dist = math.min( hDist, vDist )
 		height = rayEngine.tileWidth / dist * rayEngine.distanceToProjectionPlane
-		startY = buffer.screen.height / 2 - height / 2 + 1
+		startY = buffer.screen.height / 2 - height / 2 + 1 + rayEngine.modifer
 
 		--Рисуем сценку
 		tileColor = height > distanceLimit and rayEngine.world.colors.tile.byTime[#rayEngine.world.colors.tile.byTime] or rayEngine.world.colors.tile.byTime[math.floor(#rayEngine.world.colors.tile.byTime * height / distanceLimit)]
@@ -266,6 +268,25 @@ function rayEngine.intro()
 	for i = 20, 100, 20 do draw(i) end
 	os.sleep(1.5)
 	for i = 100, 20, -20 do draw(i) end
+end
+function rayEngine.compass(x, y)
+	if not rayEngine.compassImage then rayEngine.compassImage = image.fromString("1C190000FF 0000FF 0000FF 0000FF 0000FF 0000FF 0000FF 0000FF 0000FF 0000FF 0000FF 553600▄373100▄543600▄373600▄543600▄373100▄540000 375400▄673700▄0000FF 0000FF 0000FF 0000FF 0000FF 0000FF 0000FF 0000FF 0000FF 0000FF 0000FF 0055FF▄675400▄553700▄375500▄550000 375500▄540000 375400▄540000 373600▄310000 675500▄677E00▄375300▄365400▄373600▄540000 0000FF 0000FF 0000FF 0000FF 0000FF 0000FF 0000FF 0000FF 0000FF 0000FF 555400▄553700▄540000 54...(line truncated)...
+	buffer.image(x, y, rayEngine.compassImage)
+
+	x, y = x + 15, y + 17
+	local distance = 3.4
+	local northAngle = rayEngine.player.rotation
+	local xScaleFactor = 2.2
+	local southPoint, northPoint = {}, {}
+	local northAngleRad = math.rad(northAngle)
+	northPoint.x, northPoint.y = round(x + math.sin(northAngleRad) * distance * xScaleFactor), round(y - math.cos(northAngleRad) * distance)
+	northAngleRad = math.rad(northAngle + 180)
+	southPoint.x, southPoint.y = round(x + math.sin(northAngleRad) * distance * xScaleFactor), round(y - math.cos(northAngleRad) * distance)
+	
+	y = y * 2
+	doubleHeight.line(x, y, northPoint.x, northPoint.y * 2, 0xFF5555)
+	doubleHeight.line(x, y, southPoint.x, southPoint.y * 2, 0xFFFFFF)
+	doubleHeight.set(x, y, 0x000000)
 end
 
 ----------------------------------------------------------------------------------------------------------------------------------
