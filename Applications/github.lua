@@ -12,9 +12,9 @@ local function printUsage()
   io.write(" github get <ссылка> <путь сохранения> - загрузить указанный файл из текущего репозитория\n")
   io.write(" github fast <ссылка на raw файл> <путь сохранения>- скачать файл без ебли мозгов\n\n")
   io.write(" Примеры:\n")
-  io.write(" github set IgorTimofeev/OpenComputers\n")
+  io.write(" github set FrisKAY/MineOS-Server\n")
   io.write(" github get Applications/Home.lua Home.lua\n")
-  io.write(" github fast IgorTimofeev/OpenComputers/master/Applications/Home.lua Home.lua\n\n")	
+  io.write(" github fast FrisKAY/MineOS-Server/master/Applications/Home.lua Home.lua\n\n")	
 end
 
 if #args < 2 or string.lower(tostring(args[1])) == "help" then
@@ -29,7 +29,7 @@ local pathToConfig = "System/GitHub/Repository.cfg"
 local currentRepository
 local userUrl = "https://raw.githubusercontent.com/"
 
---pastebin run SthviZvU IgorTimofeev/OpenComputers/master/Applications.txt hehe.txt
+--pastebin run SthviZvU FrisKAY/MineOS-Server/master/Applications.txt hehe.txt
 
 ------------------------------------------------------------------------------------------
 

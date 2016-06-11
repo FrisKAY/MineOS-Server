@@ -10,12 +10,12 @@ local gpu = component.gpu
 
 --Массив с программами, которые необходимо загрузить. Первый элемент - ссылка на файл, второй - путь для сохранения файла.
 local applications = {
-	{ "https://raw.githubusercontent.com/IgorTimofeev/OpenComputers/master/lib/colorlib.lua", "lib/colorlib.lua" },
-	{ "https://raw.githubusercontent.com/IgorTimofeev/OpenComputers/master/lib/ECSAPI.lua", "lib/ECSAPI.lua" },
-	{ "https://raw.githubusercontent.com/IgorTimofeev/OpenComputers/master/lib/context.lua", "lib/context.lua" },
-	{ "https://raw.githubusercontent.com/IgorTimofeev/OpenComputers/master/lib/palette.lua", "lib/palette.lua" },
-	{ "https://raw.githubusercontent.com/IgorTimofeev/OpenComputers/master/lib/image.lua", "lib/image.lua" },
-	{ "https://raw.githubusercontent.com/IgorTimofeev/OpenComputers/master/Applications/Photoshop/Photoshop.lua", "Photoshop.lua" },
+	{ "https://raw.githubusercontent.com/FrisKAY/MineOS-Server/master/lib/colorlib.lua", "lib/colorlib.lua" },
+	{ "https://raw.githubusercontent.com/FrisKAY/MineOS-Server/master/lib/ECSAPI.lua", "lib/ECSAPI.lua" },
+	{ "https://raw.githubusercontent.com/FrisKAY/MineOS-Server/master/lib/context.lua", "lib/context.lua" },
+	{ "https://raw.githubusercontent.com/FrisKAY/MineOS-Server/master/lib/palette.lua", "lib/palette.lua" },
+	{ "https://raw.githubusercontent.com/FrisKAY/MineOS-Server/master/lib/image.lua", "lib/image.lua" },
+	{ "https://raw.githubusercontent.com/FrisKAY/MineOS-Server/master/Applications/Photoshop/Photoshop.lua", "Photoshop.lua" },
 }
 
 --Получаем размеры монитора

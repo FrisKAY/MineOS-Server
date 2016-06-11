@@ -68,7 +68,7 @@ end
 
 local function getECSAPI()
 	print("Загружаю библиотеку ECSAPI.lua...")
-	shell.execute("wget -fQ https://raw.githubusercontent.com/IgorTimofeev/OpenComputers/master/lib/ECSAPI.lua lib/ECSAPI.lua")
+	shell.execute("wget -fQ https://raw.githubusercontent.com/FrisKAY/MineOS-Server/master/lib/ECSAPI.lua lib/ECSAPI.lua")
 	package.loaded.ECSAPI = nil
 	package.loaded.ecs = nil
 	_G.ecs = require("ECSAPI")
@@ -77,7 +77,7 @@ end
 
 local function getApplicationList()
 	print("Обновляю список приложений...")
-	shell.execute("wget -fQ https://raw.githubusercontent.com/IgorTimofeev/OpenComputers/master/Applications.txt MineOS/System/OS/Applications.txt")
+	shell.execute("wget -fQ https://raw.githubusercontent.com/FrisKAY/MineOS-Server/master/Applications.txt MineOS/System/OS/Applications.txt")
 	print("Список приложений обновлен.")
 end
 

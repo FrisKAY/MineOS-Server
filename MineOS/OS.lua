@@ -361,7 +361,7 @@ local function windows10()
 
 		buffer.text(x + 2, y + height - 2, 0x999999, "For a short time we're offering")
 		buffer.text(x + 2, y + height - 1, 0x999999, "a free upgrade to")
-		buffer.text(x + 20, y + height - 1, background, "Windows 10")
+		buffer.text(x + 20, y + height - 1, background, "MineOS-Server")
 
 		buffer.draw()
 	end
