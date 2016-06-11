@@ -351,7 +351,7 @@ local function windows10()
 		buffer.square(x, y, width, height, background, 0xFFFFFF, " ")
 		buffer.square(x, y + height - 2, width, 2, 0xFFFFFF, 0xFFFFFF, " ")
 
-		buffer.text(x + 2, y + 1, 0xFFFFFF, "Get Windows 10")
+		buffer.text(x + 2, y + 1, 0xFFFFFF, "Get MineOS-Server 10")
 		buffer.text(x + width - 3, y + 1, 0xFFFFFF, "X")
 
 		buffer.image(x + 2, y + 4, image.load("MineOS/System/OS/Icons/Computer.pic"))
@@ -361,7 +361,7 @@ local function windows10()
 
 		buffer.text(x + 2, y + height - 2, 0x999999, "For a short time we're offering")
 		buffer.text(x + 2, y + height - 1, 0x999999, "a free upgrade to")
-		buffer.text(x + 20, y + height - 1, background, "MineOS-Server")
+		buffer.text(x + 20, y + height - 1, background, "MineOS-Server 10")
 
 		buffer.draw()
 	end
@@ -387,11 +387,11 @@ local function windows10()
 			draw(0x0092FF)
 			drawAll()
 
-			local data = ecs.universalWindow("auto", "auto", 30, ecs.windowColors.background, true, {"EmptyLine"}, {"CenterText", 0x000000, "  Да шучу я.  "}, {"CenterText", 0x000000, "  Но ведь достали же обновления, верно?  "}, {"EmptyLine"}, {"Button", {0xbbbbbb, 0xFFFFFF, "Да"}, {0x999999, 0xFFFFFF, "Нет"}})
-			if data[1] == "Да" then
+			local data = ecs.universalWindow("auto", "auto", 30, ecs.windowColors.background, true, {"EmptyLine"}, {"CenterText", 0x000000, "  Внимание  "}, {"CenterText", 0x000000, "  На данный момент, обновление недоступно!  "}, {"EmptyLine"}, {"Button", {0xbbbbbb, 0xFFFFFF, "Ок"}, {0x999999, 0xFFFFFF, "Инфо"}})
+			if data[1] == "Ок" then
 				disableUpdates()
 			else
-				GUI.error("Пидора ответ!")
+				GUI.error("Недоступно")
 			end
 
 			return
