@@ -21,7 +21,7 @@ local colors = {
 	topButtonsText = 0x004900,
 }
 
-local topButtons = {"Система", "Диски"}
+local topButtons = {"Система", "Диски", "Активация"}
 local spaceBetweenTopButtons, offsetTopButtons = 2, 2
 local currentMode = 1
 
@@ -186,6 +186,7 @@ local function drawMain()
 		newObj("Active", i, ecs.drawButton(xPos, yPos, 18, 3, "Активировать защиту", ecs.colors.blue, 0xffffff))
 
     end
+end
 
 
 -------------------------------------------------------------------------------------------------------------------------------
