@@ -13,12 +13,12 @@ local gpu = c.gpu
 -------------------------------------------------------------------------------------------------------------------------------
 
 local colors = {
-	topBar = 0x33ff00,
+	topBar = 0x00b640,
 	main = 0xffffff,
 	closes = {cross = 0xCC4C4C, hide = 0xDEDE6C, full = 0x57A64E},
-	topText = 0x262626,
+	topText = 0x004900,
 	topButtons = 0xffffff,
-	topButtonsText = 0x262626,
+	topButtonsText = 0x004900,
 }
 
 local topButtons = {"Система", "Диски"}
