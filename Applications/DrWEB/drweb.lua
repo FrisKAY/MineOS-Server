@@ -141,7 +141,7 @@ local function drawMain()
 		ecs.smartText(xPos, yPos, "§fЛицензия §8"..ecs.stringLimit("end", computer.address(), 30)); yPos = yPos + 1
 		
 		xPos, yPos = x + 67, yPos - 4
-	    newObj("HDDControls", i, ecs.drawButton(xPos, yPos, 14, 3, "Управление", ecs.colors.blue, 0xffffff))
+	    newObj("Active", i, ecs.drawButton(xPos, yPos, 14, 3, "Управление", ecs.colors.blue, 0xffffff))
 	
 	elseif currentMode == 2 then
 		obj["HDDControls"] = {}
