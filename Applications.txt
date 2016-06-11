@@ -823,6 +823,15 @@
     },
   },
   {
+    name="MineOS/Applications/DrWEB",
+    url="FrisKAY/MineOS-Server/master/Applications/DrWEB/DrWEB.lua",
+    about="FrisKAY/MineOS-Server/master/Applications/DrWEB/About/",
+    type="Application",
+    icon="FrisKAY/MineOS-Server/master/Applications/DrWEB/Icon.pic",
+    createShortcut="desktop",
+    version=0.1,
+  },
+  {
     name="MineOS/Applications/Control",
     url="FrisKAY/MineOS-Server/master/Applications/Control/Control.lua",
     about="FrisKAY/MineOS-Server/master/Applications/Control/About/",
