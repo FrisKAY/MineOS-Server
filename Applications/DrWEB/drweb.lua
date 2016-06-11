@@ -192,7 +192,33 @@ drawMain()
 while true do
 	local e = {event.pull()}
 	if e[1] == "touch" then
-
+        for key in pairs(obj["Active"]) do
+				if ecs.clickedAtArea(e[3], e[4], obj["Active"][key][1], obj["Active"][key][2], obj["Active"][key][3], obj["Active"][key][4]) then
+					ecs.drawButton(obj["Active"][key][1], obj["Active"][key][2], 14, 3, "Управление", 0xdddddd, ecs.colors.blue)
+					local action = context.menu(obj["Active"][key][1], obj["Active"][key][2] + 3, {"Форматировать"}, {"Изменить имя"}, {"Установить как загрузочный"}, "-", {"Сдублировать OS на этот диск"})
+					if action == "Форматировать" then
+						local data = ecs.universalWindow("auto", "auto", 38, ecs.windowColors.background, true, {"EmptyLine"}, {"CenterText", 0x880000, "Внимание!"}, {"EmptyLine"}, {"CenterText", 0x262626, "Данное действие очистит весь диск."}, {"CenterText", 0x262626, "Продолжить?"}, {"EmptyLine"}, {"Button", {0xbbbbbb, 0xffffff, "Да"}, {0x999999, 0xffffff, "Нет"}})
+						if data[1] ~= "Нет" then
+							ecs.formatHDD(HDDs[key].address)
+							drawMain()
+						end
+					elseif action == "Изменить имя" then
+						local data = ecs.universalWindow("auto", "auto", 30, ecs.windowColors.background, true, {"EmptyLine"}, {"CenterText", 0x262626, "Изменить имя диска"}, {"EmptyLine"}, {"Input", 0x262626, 0x000000, HDDs[key].label or "Имя"}, {"EmptyLine"}, {"Button", {0xbbbbbb, 0xffffff, "OK!"}})
+						if data[1] == "" or data[1] == " " then data[1] = "Untitled" end
+						ecs.setHDDLabel(HDDs[key].address, data[1])
+						drawMain()
+					elseif action == "Сдублировать OS на этот диск" then
+						ecs.duplicateFileSystem(bootAddress, HDDs[key].address)
+						drawMain()
+					elseif action == "Установить как загрузочный" then
+						computer.setBootAddress(HDDs[key].address)
+						bootAddress = HDDs[key].address
+						drawMain()
+					end
+					ecs.drawButton(obj["Active"][key][1], obj["Active"][key][2], 14, 3, "Управление", ecs.colors.blue, 0xffffff)
+					break
+				end
+			end
 		if currentMode == 2 then
 			for key in pairs(obj["HDDControls"]) do
 				if ecs.clickedAtArea(e[3], e[4], obj["HDDControls"][key][1], obj["HDDControls"][key][2], obj["HDDControls"][key][3], obj["HDDControls"][key][4]) then
