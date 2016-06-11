@@ -25,7 +25,7 @@ local topButtons = {"Система", "Диски"}
 local spaceBetweenTopButtons, offsetTopButtons = 2, 2
 local currentMode = 1
 
-local osIcon = image.load("MineOS/System/OS/Icons/OS_Logo.pic")
+local osIcon = image.load("MineOS/System/OS/Icons/Downloading.pic")
 local hddIcon = image.load("MineOS/System/OS/Icons/HDD.pic")
 local floppyIcon = image.load("MineOS/System/OS/Icons/Floppy.pic")
 local updateIcon = image.load("MineOS/System/OS/Icons/Update.pic")
