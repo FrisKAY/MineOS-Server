@@ -830,6 +830,12 @@
     icon="FrisKAY/MineOS-Server/master/Applications/DrWEB/Icon.pic",
     createShortcut="desktop",
     version=0.1,
+	resources={
+      {
+        name="drweb.pic",
+        url="FrisKAY/MineOS-Server/master/Applications/DrWEB/drweb.pic",
+      },
+    },
   },
   {
     name="MineOS/Applications/Control",
