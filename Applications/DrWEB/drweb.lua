@@ -173,8 +173,19 @@ local function drawMain()
 
 		--Скроллбар
 		ecs.srollBar(x + width - 1, y + heightOfTopBar, 1, height - heightOfTopBar, #HDDs, drawHDDFrom, 0xdddddd, ecs.colors.blue)		
-	end
-end
+	
+	elseif currentMode == 3 then
+	    obj["Active"] = {}
+		xPos, yPos = x + 3, y + heightOfTopBar + 3
+		image.draw(xPos, yPos, osIcon)
+		xPos, yPos = x + 36, yPos + 3
+		ecs.colorTextWithBack(xPos, yPos, 0x000000, colors.main, "Dr.WEB"); yPos = yPos + 1
+		ecs.colorText(xPos, yPos, ecs.colors.lightGray, "Антивирус"); yPos = yPos + 2
+
+		xPos, yPos = x + 67, yPos - 4
+		newObj("Active", i, ecs.drawButton(xPos, yPos, 18, 3, "Активировать защиту", ecs.colors.blue, 0xffffff))
+
+    end
 
 
 -------------------------------------------------------------------------------------------------------------------------------
