@@ -12,28 +12,6 @@ local gpu = c.gpu
 
 -------------------------------------------------------------------------------------------------------------------------------
 
-local function request(url)
-  local success, response = pcall(component.internet.request, url)
-  if success then
-    local responseData = ""
-    while true do
-      local data, responseChunk = response.read() 
-      if data then
-        responseData = responseData .. data
-      else
-        if responseChunk then
-          return false, responseChunk
-        else
-          return responseData
-        end
-      end
-    end
-  else
-    return false, reason
-  end
-end
-
---БЕЗОПАСНАЯ ЗАГРУЗОЧКА
 local function getFromGitHubSafely(url, path)
   local success, reason = request(url)
   if success then
@@ -52,7 +30,7 @@ end
 local GitHubUserUrl = "https://raw.githubusercontent.com/"
 
 local preLoadApi = {
-  { paste = "FrisKAY/MineOS-Server/master/MineOS/OS.lua", path = "OS.lua" },
+  { paste = "FrisKAY/MineOS-Server/master/MineOS/OS.lua", path = "OS2.lua" },
 }
 
 local colors = {
